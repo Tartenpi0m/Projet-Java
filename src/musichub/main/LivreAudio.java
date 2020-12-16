@@ -1,10 +1,16 @@
 package main;
+/**
+*Classe Livre Audio
+* 
+*@author Antoine R.
+*
+*/
 
 public class LivreAudio extends ElementMusicale {
 
-	String Auteur;
-	String Langue;
-	String Categorie;
+	private String Auteur;
+	private Langue Langue;
+	private Categorie Categorie;
 
 
 }

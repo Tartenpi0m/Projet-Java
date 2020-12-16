@@ -1,16 +1,14 @@
 package main;
 
+import main.ObjetMusicale;
 /**
-*Classe abstraite Element musicale qui regroupe les attributs commun entre la class <strong>Chanson</strong> et <strong>LivreAudio</strong>
+*Classe abstraite Elementmusicale qui regroupe les attributs communs entre la classe <strong>Chanson</strong> et <strong>LivreAudio</strong>
 *@author Antoine R.
 *
 */
 
-abstract public class ElementMusicale {
+abstract public class ElementMusicale extends ObjetMusicale{
 	
-	String Titre; 
-	int Durée;
-	int id;
-	//Variable de contenu 
+	//Variable de contenu des fichier audio
 
 }

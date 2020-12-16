@@ -1,0 +1,13 @@
+package main;
+
+/**
+*Classe Album
+*@author Antoine R.
+*/
+
+
+public class Album {
+
+	private String Artiste;
+	//private Inconnue Date; ??????????????????
+}
