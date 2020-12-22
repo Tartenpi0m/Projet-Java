@@ -1,5 +1,4 @@
 package main;
-
 /**
 *Enumeration des différentes Langues
 * (Français, Anglais, Italien, Espagnol, Allemand)

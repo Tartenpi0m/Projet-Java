@@ -8,7 +8,7 @@ package main;
 
 
 
-abstract public class ObjetMusicale {
+ abstract public class ObjetMusicale {
 
 	String Titre;
 	int Id;

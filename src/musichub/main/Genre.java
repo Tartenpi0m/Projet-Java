@@ -1,4 +1,5 @@
 package main;
+
 /**
 *Enumeration des différents genres de musique
 * (Jazz, Classique, Hip-Hop, Rock, Pop, Rap)

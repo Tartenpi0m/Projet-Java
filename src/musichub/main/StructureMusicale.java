@@ -11,7 +11,7 @@ import java.util.List;
 
 abstract public class StructureMusicale extends ObjetMusicale{
 	
-	//private List<ElementMusicale> MusiqueListe = new List<ElementMusicale>();
+	private List<ElementMusicale> MusiqueListe; //= new List<ElementMusicale>();
 	//Probleme List est une classe abstraite, impossible donc d'en créer une instance
 	// Alors comment général avec le type List ??
 }
