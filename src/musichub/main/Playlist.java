@@ -20,4 +20,17 @@ public class Playlist extends StructureMusicale {
 
 	}
 
+
+	public void printTitle() {
+		System.out.println(this.Titre);
+	}
+
+	public void printAllSong() {
+
+		for(ElementMusicale e : MusiqueListe) {
+			e.print();
+		}
+
+	}
+
 }

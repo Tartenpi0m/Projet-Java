@@ -11,4 +11,6 @@ abstract public class ElementMusicale extends ObjetMusicale {
 	
 	//Variable de contenu des fichier audio
 
+	public abstract void print();
+
 }

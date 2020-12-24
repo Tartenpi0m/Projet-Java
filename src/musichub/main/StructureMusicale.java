@@ -14,4 +14,8 @@ abstract public class StructureMusicale extends ObjetMusicale{
 	public List<ElementMusicale> MusiqueListe; //= new List<ElementMusicale>();
 	//Probleme List est une classe abstraite, impossible donc d'en créer une instance
 	// Alors comment général avec le type List ??
+
+	public  abstract void printTitle();
+
+	public  abstract void printAllSong();
 }
