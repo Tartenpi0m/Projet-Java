@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Comparator;
+
 /**
 *Classe Chanson
 * 
@@ -26,4 +28,13 @@ public class Chanson extends ElementMusicale {
 		System.out.println(this.Titre + " de " + this.Artiste);
 
 	}
+
+
+    public static Comparator<Chanson> ComparatorGenre = new Comparator<Chanson>() {
+     
+        @Override
+        public int compare(Chanson c1, Chanson c2) {
+            return c1.Genre.compareTo(c2.Genre);
+        }
+    };
 }

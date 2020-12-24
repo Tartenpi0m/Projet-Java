@@ -1,8 +1,10 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.List;
 import java.util.Comparator;
+import java.util.Collections;
 
 /**
 *Classe Album
@@ -15,7 +17,7 @@ public class Album extends StructureMusicale {
 	private String Artiste;
 	//private Inconnue Date; ??????????????????
 	private int Date;
-	List<Chanson> MusiqueListe = new ArrayList<Chanson>();
+	List<Chanson> MusiqueListe = Collections.synchronizedList(new CopyOnWriteArrayList<Chanson>());
 
 
 
@@ -48,16 +50,10 @@ public class Album extends StructureMusicale {
         }
     };
 
-/*
-    public static Comparator<Album> ComparatorGenre = new Comparator<Album>() {
-     
-        @Override
-        public int compare(Album a1, Album a2) {
-            return a1.Genre.compareTo(a2.Genre);
-        }
-    };
+    public void sortSongByGenre() {
 
-*/
+    	Collections.sort(MusiqueListe, Chanson.ComparatorGenre);
+    }
 
 
 
