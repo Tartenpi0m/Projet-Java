@@ -1,9 +1,10 @@
 package main;
 
-import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.List;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
 *Classe abstraite Structuremusicale qui regroupe les attributs communs entre la classe <strong>Album</strong> et <strong>Playlist</strong>
@@ -38,13 +39,17 @@ public class GestionStructureMusicale {
 
 		System.out.println("LISTE DES ALBUMS");
 		for(Album a : ListeAlbum) {
-			a.printTitle();
+			
+			if(!a.Titre.equals("No Album")) {
+
+				a.printTitle();
+			}
 		}
 		System.out.println("--------------------");
 
 	}
 
-	public static void sortListeAlbumByDate() {
+	public static void sortListAlbumByDate() {
 
 		Collections.sort(ListeAlbum, Album.ComparatorDate);
 
@@ -58,6 +63,7 @@ public class GestionStructureMusicale {
 	}
 
 	public static void printAllSong() {
+		System.out.println("");
 		System.out.println("LISTE DE TOUTES LES CHANSONS");
 		for(Album a : ListeAlbum) {
 			a.printAllSong();
@@ -65,17 +71,17 @@ public class GestionStructureMusicale {
 		System.out.println("--------------------");
 	}
 
-	public static void addSongToAlbum(String S,String A) {
+	public static boolean addSongToAlbum(String S,String A) {
 		boolean FindAlbum = true;
 		boolean FindSong = true;
 
 		quit:for(Chanson s : ListeAlbum.get(0).MusiqueListe) {
-			if(s.Titre == S) {
+			if(s.Titre.equals(S)) {
 				FindSong = false;
 
 				for(Album a : ListeAlbum) {
 
-					if(a.Titre == A) {
+					if(a.Titre.equals(A)) {
 						FindAlbum = false;
 						a.MusiqueListe.add(s);
 						ListeAlbum.get(0).MusiqueListe.remove(s);
@@ -88,25 +94,32 @@ public class GestionStructureMusicale {
 
 		for(Album a : ListeAlbum) {
 
-			if(a.Titre == A) {
+			if(a.Titre.equals(A)) {
 				FindAlbum = false;
 			}	
 		}
 
 		if(FindAlbum) {
-			System.out.println("L'album " + A + " n'existe pas");
+			System.out.println("L'album " + A + " n'existe pas");	
 		}
 		if(FindSong) {
 			System.out.println("La chanson " + S + " n'existe pas");
 		}
+		if(FindAlbum || FindSong) {
+			System.out.println("Ou la chanson est peut-être déjà dans un album");
+			return false;
+		}
 
-
-
-
+		return true;
 	}
 
 	public static void printSongOfAlbum(String A) {
-		System.out.println("LISTE DES CHANSONS DE L'ALBUM " + A);
+		if(A.equals("No Album")) {
+			System.out.println("LISTE DES CHANSONS SANS ALBUM");
+		} else {
+
+			System.out.println("LISTE DES CHANSONS DE L'ALBUM " + A);
+		}
 		for(Album a : ListeAlbum) {
 			if(a.Titre == A) {
 				
@@ -150,7 +163,7 @@ public class GestionStructureMusicale {
 	}
 
 	//On parours tt les album pour trouver la chanson et ainsi l'ajouter a la playlist
-	public static void addSongToPlaylist(String S, String P) {
+	public static boolean addSongToPlaylist(String S, String P) {
 
 		boolean FindPlaylist = true;
 		boolean FindSong = true;
@@ -159,13 +172,13 @@ public class GestionStructureMusicale {
 
 			for(Chanson s : a.MusiqueListe) {
 
-				if(s.Titre == S) {
+				if(s.Titre.equals(S)) {
 
 					FindSong = false;
 
 					for(Playlist p : ListePlaylist) {
 
-						if(p.Titre == P) {
+						if(p.Titre.equals(P)) {
 
 							FindPlaylist = false;
 							p.MusiqueListe.add(s);
@@ -179,7 +192,7 @@ public class GestionStructureMusicale {
 
 		for(Playlist p : ListePlaylist) {
 
-			if(p.Titre == P) {
+			if(p.Titre.equals(P)) {
 				FindPlaylist = false;
 			}	
 		}
@@ -190,11 +203,17 @@ public class GestionStructureMusicale {
 		if(FindSong) {
 			System.out.println("La chanson " + S + " n'existe pas");
 		}
+		if(FindPlaylist || FindSong) {
+			return false;
+		}
+
+
+		return true;
 	}
 
 
 	//On cherche dans toutes les playlist si le Livre audio existe avant de l'ajouter et de le retirer de la No Playlist
-	public static void addLivreAudioToPlaylist(String L, String P) {
+	public static boolean addLivreAudioToPlaylist(String L, String P) {
 
 		boolean FindPlaylist = true;
 		boolean FindLivreAudio = true;
@@ -206,11 +225,13 @@ public class GestionStructureMusicale {
 
 				if(l instanceof LivreAudio) {
 
-					if(l.Titre == L) {
+					if(l.Titre.equals(L)) {
+
+						FindLivreAudio = false;
 
 						for(Playlist p2 : ListePlaylist) {
 
-							if(p2.Titre == P) {
+							if(p2.Titre.equals(P)) {
 
 								p2.MusiqueListe.add(l);
 								FindPlaylist = false;
@@ -230,18 +251,32 @@ public class GestionStructureMusicale {
 
 			if(l instanceof LivreAudio) {
 
-				if(l.Titre == L) {
+				if(l.Titre.equals(L)) {
 
 					ListePlaylist.get(0).MusiqueListe.remove(l);
 				}
 			}
 		}
 
-		if(FindPlaylist) {
-			System.out.println("La playlist " + P + " n'existe pas");
+		for(Playlist p : ListePlaylist) {
+
+			if(p.Titre.equals(P)) {
+				FindPlaylist = false;
+			}	
 		}
 
+		if(FindPlaylist) {
+			System.out.println("Le Livre Audio " + P + " n'existe pas");
+		}
+		if(FindLivreAudio) {
 
+			System.out.println("La Livre Audio " + L + " n'existe pas");	
+		}
+		if(FindPlaylist || FindLivreAudio) {
+			return false;
+		}
+
+		return true;
 
 	}
 
@@ -270,21 +305,49 @@ public class GestionStructureMusicale {
 	}
 
 
-	public static void removePlaylist(String P) {
+	public static boolean removePlaylist(String P) {
 		
 		for(Playlist p : ListePlaylist) {
 
-			if(p.Titre == P) {
+			if(p.Titre.equals(P)) {
 				ListePlaylist.remove(p);
 				System.out.println("La playlist " + P + " a bien été supprimée");
-				return;
+				return true;
 			}
 		}
 
 		System.out.println("La playlist " + P + " n'existe pas");
+		return false;
 	}
 
 
+	public static void printAllLivreAudio() {
+
+		List<ElementMusicale> arrayLivreAudio = new CopyOnWriteArrayList<ElementMusicale>();
+	
+
+		for(Playlist p : ListePlaylist) {
+
+			for(ElementMusicale L : p.MusiqueListe ) {
+
+				if(L instanceof LivreAudio) {
+					arrayLivreAudio.add(L);
+				}
+			}
+		}
+
+		Set<ElementMusicale> monSet = new HashSet<ElementMusicale>(arrayLivreAudio);
+		List<ElementMusicale> arrayLivreAudio_2 = new CopyOnWriteArrayList<ElementMusicale>(monSet);
+
+		System.out.println("");
+		System.out.println("LISTE DE TOUS LES LIVRES AUDIO");
+		for(ElementMusicale e : arrayLivreAudio_2) {
+			e.print();
+		}
+		System.out.println("--------------------");
+
+
+	}
 	
 
 }

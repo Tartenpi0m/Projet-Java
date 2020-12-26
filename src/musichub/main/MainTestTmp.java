@@ -4,20 +4,21 @@ public class MainTestTmp {
 
 	public static void main(String[] args) {
 
-		GestionStructureMusicale.addAlbum("No Album", 0, "No Artiste", 2020);
+		GestionStructureMusicale.addAlbum("No Album", Entree.giveId(), "No Artiste", 2020);
 		GestionStructureMusicale.addPlaylist("NoPlaylist");
 
-		GestionStructureMusicale.addAlbum("Peach", 1, "Larkin Poe", 2017);
+		GestionStructureMusicale.addAlbum("Peach", Entree.giveId(), "Larkin Poe", 2017);
 		GestionStructureMusicale.addPlaylist("Beurre");
 		
 
-		GestionStructureMusicale.addSong("Look Away", 1, "Larkin Poe", Genre.ROCK);
-		GestionStructureMusicale.addSong("Black Betty", 2, "Larkin Poe", Genre.JAZZ);
-		GestionStructureMusicale.addSong("Hold the Line", 3, "Toto", Genre.ROCK);
+		GestionStructureMusicale.addSong("Look Away", Entree.giveId(), "Larkin Poe", Genre.ROCK);
+		GestionStructureMusicale.addSong("Black Betty", Entree.giveId(), "Larkin Poe", Genre.JAZZ);
+		GestionStructureMusicale.addSong("Hold the Line", Entree.giveId(), "Toto", Genre.ROCK);
 
-		GestionStructureMusicale.addLivreAudio("Harry Potter II", 45, "J.K. Rowlings", Langue.FRANCAIS, Categorie.JEUNESSE);
+		GestionStructureMusicale.addLivreAudio("Harry Potter II",  Entree.giveId(), "J.K. Rowlings", Langue.FRANCAIS, Categorie.JEUNESSE);
 
-		Entree.askIntNonRequired("Date");
+		//GestionStructureMusicale.addSongToAlbum("Look Away", "Peach");
+		
 
 
 		String s;
@@ -26,6 +27,7 @@ public class MainTestTmp {
 			
 			do {
 				s = Entree.askCommande();
+				if(s.equals(Commande.EXIT.getCommande())) {return;}
 
 			}while(s.equals("error"));
 

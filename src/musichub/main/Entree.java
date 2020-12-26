@@ -9,7 +9,7 @@ import java.io.InputStream;
 
 
 
-public class Entree {
+public abstract class Entree {
 
 	private static Scanner sc = new Scanner(System.in);
 
@@ -17,7 +17,7 @@ public class Entree {
 
 	private static int Id = 0;
 
-	//sc.nextLine();
+
 	public static int giveId() {
 
 		Id ++;
@@ -25,14 +25,14 @@ public class Entree {
 
 	}
 
-	public static String ask() {
+	private static String ask() {
 
 		String s;
 		s = sc.nextLine();
 		return s;
  	}
 
- 	public static String askRequired(String info) {
+ 	private static String askRequired(String info) {
 
  		String s;
 
@@ -44,7 +44,7 @@ public class Entree {
  		return s;
  	}
 
- 	public static String askNonRequired(String info) {
+ 	private static String askNonRequired(String info) {
 
  		String s;
  		System.out.print(info + " : ");
@@ -57,7 +57,7 @@ public class Entree {
  	}
 
 
- 	public static int askIntNonRequired(String info) {
+ 	private static int askIntNonRequired(String info) {
 
  		int i;
  		while(true) {
@@ -188,24 +188,25 @@ public class Entree {
 
 	public static void makeCommande(String s) {
 		
-		if(s.equals(tableauCommande[1].getCommande())) {
+		if(s.equals(tableauCommande[0].getCommande())) {
 			addSong();
+ 
+		} else if(s.equals(tableauCommande[1].getCommande())) {
+
+			addAlbum();
  
 		} else if(s.equals(tableauCommande[2].getCommande())) {
 			
- 
+ 			addSongToAlbum();
 		} else if(s.equals(tableauCommande[3].getCommande())) {
 			
- 
+ 			addLivreAudio();
 		} else if(s.equals(tableauCommande[4].getCommande())) {
 			
- 
+ 			addPlaylist();
 		} else if(s.equals(tableauCommande[5].getCommande())) {
 			
- 
-		} else if(s.equals(tableauCommande[6].getCommande())) {
-			
- 
+ 			removePlaylist();
 		} 
 
 	
@@ -218,12 +219,122 @@ public class Entree {
 
 		System.out.println("--AJOUT D'UNE NOUVELLE CHANSON--");
 		String Titre = askRequired("Titre");
+		if(Titre.equals(tableauCommande[8].getCommande())) {return;}
 		String Artiste = askNonRequired("Artiste");
 		Genre Genre = askGenre();
 		GestionStructureMusicale.addSong(Titre, giveId(), Artiste, Genre);
 
 	}
 
+
+	public static void addAlbum() {
+	
+		System.out.println("--AJOUT D'UN NOUVEL ALBUM--");
+		String Titre = askRequired("Titre");
+		if(Titre.equals(tableauCommande[8].getCommande())) {return;}
+		String Artiste = askNonRequired("Artiste");
+		int Date = askIntNonRequired("Date (année)");
+		GestionStructureMusicale.addAlbum(Titre, giveId(), Artiste, Date);
+		GestionStructureMusicale.sortListAlbumByDate();
+	}
+
+
+	public static void addSongToAlbum() {
+
+		System.out.println("--AJOUT D'UNE CHANSON A UN ALBUM--");
+		String TitreChanson;
+		String TitreAlbum;
+
+		do {
+			GestionStructureMusicale.printSongOfAlbum("No Album");
+			TitreChanson = askRequired("Chanson");
+			if(TitreChanson.equals(tableauCommande[8].getCommande())) {return;}
+			GestionStructureMusicale.printListAlbum();
+			TitreAlbum = askRequired("Album");
+			if(TitreAlbum.equals(tableauCommande[8].getCommande())) {return;}
+			System.out.println(TitreChanson + " : " + TitreAlbum);
+		
+		} while(GestionStructureMusicale.addSongToAlbum(TitreChanson, TitreAlbum) == false);
+
+	}
+
+
+	public static void addLivreAudio() {
+
+		System.out.println("--AJOUT D'UN NOUVEAU LIVRE AUDIO--");
+		String Titre = askRequired("Titre");
+		if(Titre.equals(tableauCommande[8].getCommande())) {return;}
+		String Auteur = askNonRequired("Auteur");
+		Langue Langue = askLangue();
+		Categorie Categorie = askCategorie();
+		GestionStructureMusicale.addLivreAudio(Titre, giveId(), Auteur, Langue, Categorie);
+	}
+
+
+	public static void addPlaylist() {
+
+		System.out.println("--AJOUT D'UNE NOUVELLE PLALYIST");
+		String NomPlaylist = askRequired("Nom"); 
+		if(NomPlaylist.equals(tableauCommande[8].getCommande())) {return;}
+		GestionStructureMusicale.addPlaylist(NomPlaylist);
+
+
+		String Titre;
+		String choix = askRequired("Ajouter des Chansons à la playlist (y/n)");
+		
+		if(choix.equals("y")) {
+			GestionStructureMusicale.printAllSong();
+		}
+
+		while(choix.equals("y")) {
+
+
+			Titre = askRequired("Chansons");
+			if(Titre.equals(tableauCommande[8].getCommande())) {return;}
+			
+			if(GestionStructureMusicale.addSongToPlaylist(Titre, NomPlaylist) == false) {
+				continue;
+			}
+
+
+			choix = askRequired("Ajouter des Chansons à la playlist (y/n)");
+			
+		} 
+
+
+		choix = askRequired("Ajouter des Livres Audio à la playlist (y/n)");
+		
+		if(choix.equals("y")) {
+			GestionStructureMusicale.printAllLivreAudio();
+		}
+
+		while(choix.equals("y")) {
+
+
+			Titre = askRequired("Livre Audio");
+			if(Titre.equals(tableauCommande[8].getCommande())) {return;}
+			
+			if(GestionStructureMusicale.addLivreAudioToPlaylist(Titre, NomPlaylist) == false) {
+				continue;
+			}
+
+
+			choix = askRequired("Ajouter des Livres Audio à la playlist (y/n)");
+			
+		} 
+
+	}
+
+
+	public static void removePlaylist() {
+		System.out.println("--SUPPRESSION D'UNE PLAYLIST--");
+		String NomPlaylist = askRequired("Playlist");
+		if(NomPlaylist.equals(tableauCommande[8].getCommande())) {return;}
+
+		while(GestionStructureMusicale.removePlaylist(NomPlaylist) == false) {
+			NomPlaylist = askRequired("Playlist");
+		}
+	} 
 
 
 
