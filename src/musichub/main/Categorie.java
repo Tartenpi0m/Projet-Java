@@ -8,7 +8,7 @@ package main;
 
 public enum Categorie {
 
-	JEUNESSE("Jeunesse"), ROMAN("Roman"), THEATRE("Théatre"), DISCOURS("Discours"), DOCUMENTAIRE("Documentaire");
+	JEUNESSE("Jeunesse"), ROMAN("Roman"), THEATRE("Théatre"), DISCOURS("Discours"), DOCUMENTAIRE("Documentaire"), INCONNU("Inconnu");
 	
 	private String cat;
 

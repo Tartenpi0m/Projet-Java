@@ -17,6 +17,49 @@ public class MainTestTmp {
 
 		GestionStructureMusicale.addLivreAudio("Harry Potter II", 45, "J.K. Rowlings", Langue.FRANCAIS, Categorie.JEUNESSE);
 
+		Entree.askIntNonRequired("Date");
+
+
+		String s;
+
+		while(true) {
+			
+			do {
+				s = Entree.askCommande();
+
+			}while(s.equals("error"));
+
+			System.out.println("AAA");
+			Entree.makeCommande(s);
+			//Entree.addSong();
+
+
+
+		}
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		/*
 
 		GestionStructureMusicale.printListPlaylist();
 
@@ -32,7 +75,7 @@ public class MainTestTmp {
 
 
 
-
+		*/
 
 
 

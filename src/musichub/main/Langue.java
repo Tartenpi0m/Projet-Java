@@ -8,7 +8,7 @@ package main;
 
 public enum Langue {
 
-	FRANCAIS("Français"), ANGLAIS("Anglais"), ITALIEN("Italien"), ESPAGNOL("Espagnol"), ALLEMAND("Allemand");
+	FRANCAIS("Français"), ANGLAIS("Anglais"), ITALIEN("Italien"), ESPAGNOL("Espagnol"), ALLEMAND("Allemand"), INCONNU("Inconnu");
 
 	private String lan;
 

@@ -9,7 +9,7 @@ package main;
 
 public enum Genre {
 
-	JAZZ("Jazz"), CLASSIQUE("Classique"), HIPHOP("Hip-Hop"), ROCK("Rock"), POP("Pop"), RAP("Rap");
+	JAZZ("Jazz"), CLASSIQUE("Classique"), HIPHOP("Hip-Hop"), ROCK("Rock"), POP("Pop"), RAP("Rap"), INCONNU("Inconnu");
 
 	private String gen;
 
