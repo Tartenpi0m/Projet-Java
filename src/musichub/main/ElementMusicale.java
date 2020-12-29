@@ -2,15 +2,16 @@
 package main;
 
 /**
-*Classe abstraite Elementmusicale qui regroupe les attributs communs entre la classe <strong>Chanson</strong> et <strong>LivreAudio</strong>
+* Abstract class which groups together the common attributes of <strong>Chanson</strong> et <strong>LivreAudio</strong>
 *@author Antoine R.
 *
 */
 
 abstract public class ElementMusicale extends ObjetMusicale {
-	
-	//Variable de contenu des fichier audio
 
+	/**
+	* Print majors element's information.
+	*/
 	public abstract void print();
 
 }

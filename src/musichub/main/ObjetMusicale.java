@@ -1,14 +1,9 @@
 package main;
 
 /**
-*Classe abstraite ObjetMusicale qui regroupe les attributs communs des classes abstraites <strong>ElementMusciale</strong> et <strong>StructureMusicale</strong>
-*@author Antoine R.
-*
+* Abstract class which groups together the common attributes of <strong>ElementMusciale</strong> et <strong>StructureMusicale</strong>
 */
-
-
-
- abstract public class ObjetMusicale {
+abstract public class ObjetMusicale {
 
 	String Titre;
 	int Id;

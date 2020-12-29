@@ -7,18 +7,24 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
-*Classe abstraite Structuremusicale qui regroupe les attributs communs entre la classe <strong>Album</strong> et <strong>Playlist</strong>
-*@author Antoine R.
-*
+* This class contains all musical structure's and can operate on them and on the song and Livre audio they contains.
+* This class can add elements and structures, print and sort them.
+* In ListeAlbum, the first one have "No Album" as title. It contains song who doesn't have album (yet).
+* 
 */
-
 public class GestionStructureMusicale {
 
 	public static List<Album> ListeAlbum = Collections.synchronizedList(new CopyOnWriteArrayList<Album>());
 
 	private static List<Playlist> ListePlaylist = Collections.synchronizedList(new CopyOnWriteArrayList<Playlist>());
 
-
+	/**
+	* Add a song in the first album (called "No Album") of ListeAlbum using the song's constructor.
+	* @param Titre String Title give to the constructor.
+	* @param Id int ID give to the constructor.
+	* @param Artiste String Artist give to the constructor.
+	* @param Genre Genre types give to the constructor.
+	*/
 	public static void addSong(String Titre, int Id, String Artiste, Genre Genre) {
 		System.out.println("La chanson " + Titre + " a bien été ajoutée");
 		Chanson c = new Chanson(Titre, Id, Artiste, Genre);
@@ -27,14 +33,23 @@ public class GestionStructureMusicale {
 	}
 
 
-
+	/**
+	* Add an album using the album's constructor.
+	* @param Titre String Title give to the constructor.
+	* @param Id int ID give to the constructor.
+	* @param Artiste String Artist give to the constructor.
+	* @param Date int Date give to the constructor.
+	*/
 	public static void addAlbum(String Titre, int Id, String Artiste, int Date) {
+		
 		System.out.println("L'album " + Titre + " a bien été ajouté.");
 		Album a = new Album(Titre, Id, Artiste, Date);
 		ListeAlbum.add(a);
 
 	}
-
+	/**
+	* Print the list of all Album (which are contains in ListeAlbum) except the "No Album".
+	*/
 	public static void printListAlbum() {
 
 		System.out.println("LISTE DES ALBUMS");
@@ -49,6 +64,9 @@ public class GestionStructureMusicale {
 
 	}
 
+	/**
+	* Sort albums (of ListeAlbum) by date.
+	*/
 	public static void sortListAlbumByDate() {
 
 		Collections.sort(ListeAlbum, Album.ComparatorDate);
@@ -62,6 +80,9 @@ public class GestionStructureMusicale {
 		}
 	}
 
+	/**
+	* Print all songs.
+	*/
 	public static void printAllSong() {
 		System.out.println("");
 		System.out.println("LISTE DE TOUTES LES CHANSONS");
@@ -71,6 +92,13 @@ public class GestionStructureMusicale {
 		System.out.println("--------------------");
 	}
 
+	/**
+	* Add the specified song to the specified Album.
+	* Print an error message if the song or the album doesn't exist.
+	* @param S String title song to add.
+	* @param A String title album to store the S song.
+	* @return boolean value, return false if the song or Album doesn't exist, else return true. 
+	*/
 	public static boolean addSongToAlbum(String S,String A) {
 		boolean FindAlbum = true;
 		boolean FindSong = true;
@@ -113,6 +141,10 @@ public class GestionStructureMusicale {
 		return true;
 	}
 
+	/**
+	* Print songs of the specified Album.
+	* @param A String title's album
+	*/
 	public static void printSongOfAlbum(String A) {
 		if(A.equals("No Album")) {
 			System.out.println("LISTE DES CHANSONS SANS ALBUM");
@@ -129,6 +161,10 @@ public class GestionStructureMusicale {
 		System.out.println("--------------------");
 	}
 
+	/**
+	* Sort song of the specified album by types.
+	* @param A String title of the album.
+	*/
 	public static void sortSongOfAlbumByGenre(String A) {
 
 		for(Album a : ListeAlbum) {
@@ -142,13 +178,14 @@ public class GestionStructureMusicale {
 
 
 
-
-
-
-
-
-
-
+	/**
+	* Add Livre Audio in the first playlist (called "No Playlist") using the LivreAudio's constructor.
+	* @param Titre String Title
+	* @param Id int ID
+	* @param Auteur String author
+	* @param Langues Langue Languages
+	* @param Categorie Categorie types
+	*/
 	public static void addLivreAudio(String Titre, int Id, String Auteur, Langue Langue, Categorie Categorie) {
 
 		LivreAudio la = new LivreAudio(Titre, Id, Auteur, Langue, Categorie);
@@ -156,14 +193,32 @@ public class GestionStructureMusicale {
 
 	}
 
+	/**
+	* Create a new playlist with the specified title if it doesn't exist.
+	* @param Titre String title of the playlist to create.
+	*/
 	public static void addPlaylist(String Titre) {
+
+		for(Playlist play : ListePlaylist) {
+			if(play.Titre.equals(Titre)) {
+				return;
+			}
+		}
 
 		Playlist p = new Playlist(Titre);
 		ListePlaylist.add(p);
 	}
 
-	//On parours tt les album pour trouver la chanson et ainsi l'ajouter a la playlist
+
+	/**
+	* Add the specified song to the specified playlist
+	* Print an error message if the song or the playlist doesn't exist.
+	* @param S String title song to add.
+	* @param P String title Playlist to store the S song.
+	* @return boolean value, return false if the song or Playlist doesn't exist, else return true. 
+	*/
 	public static boolean addSongToPlaylist(String S, String P) {
+	//On parours tt les album pour trouver la chanson et ainsi l'ajouter a la playlist
 
 		boolean FindPlaylist = true;
 		boolean FindSong = true;
@@ -211,9 +266,15 @@ public class GestionStructureMusicale {
 		return true;
 	}
 
-
-	//On cherche dans toutes les playlist si le Livre audio existe avant de l'ajouter et de le retirer de la No Playlist
+	/**
+	* Add the specified audio book to the specified playlist and remove it of the "No Playlist"
+	* Print an error message if the song or the playlist doesn't exist.
+	* @param L String title audio book to add.
+	* @param P String title Playlist to store the L audio book.
+	* @return boolean value, return false if the audio book or playlist doesn't exist, else return true. 
+	*/
 	public static boolean addLivreAudioToPlaylist(String L, String P) {
+	//On cherche dans toutes les playlist si le Livre audio existe avant de l'ajouter et de le retirer de la No Playlist
 
 		boolean FindPlaylist = true;
 		boolean FindLivreAudio = true;
@@ -281,18 +342,27 @@ public class GestionStructureMusicale {
 	}
 
 
-
+	/**
+	* Print the list of all Album (which are contains in ListeAlbum) except the "No Album".
+	*/
 	public static void printListPlaylist() {
 
 		System.out.println("LISTE DES PLAYLIST");
 		for(Playlist p : ListePlaylist) {
-			p.printTitle();
+			
+			if(!p.Titre.equals("No Playlist")) {
+
+				p.printTitle();
+			}
 		}
 		System.out.println("--------------------");
 
 	}
 
-
+	/**
+	* Print the songs and audio books of the specified playlist.
+	* @param P Stringtitle of the playlist.
+	*/
 	public static void printElementOfPlaylist(String P) {
 		System.out.println("LISTE DES CHANSONS ET LIVRES AUDIO DE LA PLAYLIST " + P);
 		for(Playlist p : ListePlaylist) {
@@ -304,7 +374,12 @@ public class GestionStructureMusicale {
 		System.out.println("--------------------");
 	}
 
-
+	/**
+	* Remove the specified playlist.
+	* Print an error message if the specified playlist doesn't exist.
+	* @param P String title of the specified playlist.
+	* @return boolean value, return true if the plalist has been deleted, else return false.
+	*/
 	public static boolean removePlaylist(String P) {
 		
 		for(Playlist p : ListePlaylist) {
@@ -320,7 +395,9 @@ public class GestionStructureMusicale {
 		return false;
 	}
 
-
+	/**
+	* Print all audio books.
+	*/
 	public static void printAllLivreAudio() {
 
 		List<ElementMusicale> arrayLivreAudio = new CopyOnWriteArrayList<ElementMusicale>();
@@ -335,6 +412,7 @@ public class GestionStructureMusicale {
 				}
 			}
 		}
+
 
 		Set<ElementMusicale> monSet = new HashSet<ElementMusicale>(arrayLivreAudio);
 		List<ElementMusicale> arrayLivreAudio_2 = new CopyOnWriteArrayList<ElementMusicale>(monSet);

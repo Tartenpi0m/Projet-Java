@@ -7,11 +7,9 @@ import java.util.Comparator;
 import java.util.Collections;
 
 /**
-*Classe Album
-*@author Antoine R.
+* This class represent an album from the user's perspective.
+* This class contains "Chanson" in a CopeOnWriteArrayList.
 */
-
-
 public class Album extends StructureMusicale {
 
 	private String Artiste;
@@ -19,8 +17,13 @@ public class Album extends StructureMusicale {
 	private int Date;
 	List<Chanson> MusiqueListe = Collections.synchronizedList(new CopyOnWriteArrayList<Chanson>());
 
-
-
+	/**
+	* Album's constructor, initialize informations in parameter.
+	* @param Titre String Title
+	* @param Id int ID
+	* @param Artiste String Artist
+	* @param Date int Date
+	*/
 	public Album(String Titre, int Id, String Artiste, int Date) {
 
 		this.Titre = Titre;
@@ -30,10 +33,16 @@ public class Album extends StructureMusicale {
 
 	}
 
+	/**
+	* Print Title and Artist of album.
+	*/
 	public void printTitle() {
 		System.out.println(this.Titre + " de " + Artiste);
 	}
 
+	/** 
+	* Print all album's songs.
+	*/
 	public void printAllSong() {
 
 		for(Chanson c : MusiqueListe) {
@@ -42,6 +51,9 @@ public class Album extends StructureMusicale {
 
 	}
 
+	/**
+	* Comparator which is used to sort albums by date.
+	*/
 	public static Comparator<Album> ComparatorDate = new Comparator<Album>() {
      
         @Override
@@ -50,6 +62,9 @@ public class Album extends StructureMusicale {
         }
     };
 
+    /**
+    * Sort album's songs by types.
+    */
     public void sortSongByGenre() {
 
     	Collections.sort(MusiqueListe, Chanson.ComparatorGenre);

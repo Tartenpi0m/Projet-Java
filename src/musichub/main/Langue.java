@@ -1,9 +1,7 @@
 package main;
 /**
-*Enumeration des différentes Langues
+* This enumeration lists all available Languages.
 * (Français, Anglais, Italien, Espagnol, Allemand)
-*@author Antoine R.
-*
 */
 
 public enum Langue {
@@ -12,12 +10,17 @@ public enum Langue {
 
 	private String lan;
 
+	/*
+	* The enumeration's constructor.
+	*/
 	private Langue(String lan) {
 
 		this.lan = lan;
 	}
 
-
+	/**
+	* The enumeration's accessor.
+	*/
 	public String getLangue() {
 
 		return this.lan;

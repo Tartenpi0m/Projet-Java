@@ -1,10 +1,8 @@
 package main;
 
 /**
-*Enumeration des différents genres de musique
+* This enumeration lists all available types of music. 
 * (Jazz, Classique, Hip-Hop, Rock, Pop, Rap)
-*@author Antoine R.
-*
 */
 
 public enum Genre {
@@ -13,11 +11,17 @@ public enum Genre {
 
 	private String gen;
 
+	/*
+	* The enumeration's constructor.
+	*/
 	private Genre(String gen) {
 
 		this.gen = gen;
 	}
 
+	/**
+	* The enumeration's accessor.
+	*/
 	public String getGenre() {
 
 		return this.gen;

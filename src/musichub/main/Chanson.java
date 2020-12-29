@@ -3,18 +3,20 @@ package main;
 import java.util.Comparator;
 
 /**
-*Classe Chanson
-* 
-*@author Antoine R.
-*
+* This class represent a song from the user's perspective.
 */
-
 public class Chanson extends ElementMusicale {
 
 	private String Artiste;
 	private Genre Genre;
 
-
+	/**
+	* Chanson's constructor, initialize informations in parameter.
+	* @param Titre String Title
+	* @param Id int ID
+	* @param Artiste String Artist
+	* @param Genre Genre types
+	*/
 	public Chanson(String Titre, int Id, String Artiste, Genre Genre) {
 
 		this.Titre = Titre;
@@ -23,13 +25,18 @@ public class Chanson extends ElementMusicale {
 		this.Genre = Genre;
 	}
 
+	/**
+	* Print Title and Artist of the song.
+	*/
 	public void print() {
 
 		System.out.println(this.Titre + " de " + this.Artiste);
 
 	}
 
-
+	/**
+	* Comparator who is used to sort songs by Genre.
+	*/
     public static Comparator<Chanson> ComparatorGenre = new Comparator<Chanson>() {
      
         @Override
