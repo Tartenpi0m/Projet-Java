@@ -5,8 +5,32 @@ package main;
 */
 abstract public class ObjetMusicale {
 
-	String Titre;
-	int Id;
-	int Duree;
+	protected String Titre;
+	protected int Id;
+	protected int Duree;
+
+	/**
+	* The accessor of Titre.
+	* @return String Titre
+	*/
+	public String getTitre() {
+		return this.Titre;
+	}
+
+	/**
+	* The accessor of Id.
+	* @return int Id
+	*/
+	public int getId() {
+		return this.Id;
+	}
+
+	/**
+	* The accessor of Duree.
+	* @return int Duree
+	*/
+	public int getDuree() {
+		return this.Duree;
+	}	
 
 }

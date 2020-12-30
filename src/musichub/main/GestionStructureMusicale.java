@@ -12,9 +12,9 @@ import java.util.Set;
 * In ListeAlbum, the first one have "No Album" as title. It contains song who doesn't have album (yet).
 * 
 */
-public class GestionStructureMusicale {
+public abstract class GestionStructureMusicale implements OperationSurObjetMusicale {
 
-	public static List<Album> ListeAlbum = Collections.synchronizedList(new CopyOnWriteArrayList<Album>());
+	private static List<Album> ListeAlbum = Collections.synchronizedList(new CopyOnWriteArrayList<Album>());
 
 	private static List<Playlist> ListePlaylist = Collections.synchronizedList(new CopyOnWriteArrayList<Playlist>());
 
@@ -35,18 +35,26 @@ public class GestionStructureMusicale {
 
 	/**
 	* Add an album using the album's constructor.
+	* @throws AlreadyExistException If the Album already exist, throws AlreadyExistException
 	* @param Titre String Title give to the constructor.
 	* @param Id int ID give to the constructor.
 	* @param Artiste String Artist give to the constructor.
 	* @param Date int Date give to the constructor.
 	*/
-	public static void addAlbum(String Titre, int Id, String Artiste, int Date) {
+	public static void addAlbum(String Titre, int Id, String Artiste, int Date) throws AlreadyExistException {
+
+		for(Album play : GestionStructureMusicale.ListeAlbum) {
+			if(play.Titre.equals(Titre)) {
+				throw new AlreadyExistException("L'album " + Titre + " existe déjà.");
+			}
+		}
 		
-		System.out.println("L'album " + Titre + " a bien été ajouté.");
 		Album a = new Album(Titre, Id, Artiste, Date);
 		ListeAlbum.add(a);
+		System.out.println("L'album " + Titre + " a bien été ajouté.");
 
 	}
+
 	/**
 	* Print the list of all Album (which are contains in ListeAlbum) except the "No Album".
 	*/
@@ -94,12 +102,11 @@ public class GestionStructureMusicale {
 
 	/**
 	* Add the specified song to the specified Album.
-	* Print an error message if the song or the album doesn't exist.
+	* @throws NotExistException Throws NotExistException if the song or the album doesn't exist.
 	* @param S String title song to add.
 	* @param A String title album to store the S song.
-	* @return boolean value, return false if the song or Album doesn't exist, else return true. 
 	*/
-	public static boolean addSongToAlbum(String S,String A) {
+	public static void addSongToAlbum(String S,String A) throws NotExistException {
 		boolean FindAlbum = true;
 		boolean FindSong = true;
 
@@ -126,19 +133,19 @@ public class GestionStructureMusicale {
 				FindAlbum = false;
 			}	
 		}
-
+		String s1 = "";
+		String s2 = "";
 		if(FindAlbum) {
-			System.out.println("L'album " + A + " n'existe pas");	
+			s1 = "L'album " + A + " n'existe pas. ";	
 		}
 		if(FindSong) {
-			System.out.println("La chanson " + S + " n'existe pas");
+			s2 = "La chanson " + S + " n'existe pas ou la chanson est peut-être déjà dans un album.";
 		}
 		if(FindAlbum || FindSong) {
-			System.out.println("Ou la chanson est peut-être déjà dans un album");
-			return false;
+			throw new NotExistException(s1 + s2);
 		}
 
-		return true;
+		return;
 	}
 
 	/**
@@ -194,30 +201,31 @@ public class GestionStructureMusicale {
 	}
 
 	/**
-	* Create a new playlist with the specified title if it doesn't exist.
+	* Create a new playlist with the specified title.
+	* @throws AlreadyExistException If a playlist with same name exist, throws an AlreadyExistException.
 	* @param Titre String title of the playlist to create.
 	*/
-	public static void addPlaylist(String Titre) {
+	public static void addPlaylist(String Titre) throws AlreadyExistException {
 
 		for(Playlist play : ListePlaylist) {
 			if(play.Titre.equals(Titre)) {
-				return;
+				throw new AlreadyExistException("La playlist " + Titre + " existe déjà.");
 			}
 		}
 
 		Playlist p = new Playlist(Titre);
 		ListePlaylist.add(p);
+		System.out.println("La playlist " + Titre + " a bien été ajoutée");
 	}
 
 
 	/**
 	* Add the specified song to the specified playlist
-	* Print an error message if the song or the playlist doesn't exist.
+	* @throws NotExistException Throws NotExistException if the song or the playlist doesn't exist.
 	* @param S String title song to add.
 	* @param P String title Playlist to store the S song.
-	* @return boolean value, return false if the song or Playlist doesn't exist, else return true. 
 	*/
-	public static boolean addSongToPlaylist(String S, String P) {
+	public static void addSongToPlaylist(String S, String P) throws NotExistException {
 	//On parours tt les album pour trouver la chanson et ainsi l'ajouter a la playlist
 
 		boolean FindPlaylist = true;
@@ -252,28 +260,29 @@ public class GestionStructureMusicale {
 			}	
 		}
 
+		String s1 = "";
+		String s2 = "";
 		if(FindPlaylist) {
-			System.out.println("La playlist " + P + " n'existe pas");
+			s1 ="La playlist " + P + " n'existe pas.";
 		}
 		if(FindSong) {
-			System.out.println("La chanson " + S + " n'existe pas");
+			s2 = "La chanson " + S + " n'existe pas.";
 		}
 		if(FindPlaylist || FindSong) {
-			return false;
+			throw new NotExistException(s1 + " " +s2);
 		}
 
 
-		return true;
+		return;
 	}
 
 	/**
 	* Add the specified audio book to the specified playlist and remove it of the "No Playlist"
-	* Print an error message if the song or the playlist doesn't exist.
+	* @throws NotExistException Throws NotExistException if the song or the playlist doesn't exist.
 	* @param L String title audio book to add.
 	* @param P String title Playlist to store the L audio book.
-	* @return boolean value, return false if the audio book or playlist doesn't exist, else return true. 
 	*/
-	public static boolean addLivreAudioToPlaylist(String L, String P) {
+	public static void addLivreAudioToPlaylist(String L, String P) throws NotExistException {
 	//On cherche dans toutes les playlist si le Livre audio existe avant de l'ajouter et de le retirer de la No Playlist
 
 		boolean FindPlaylist = true;
@@ -326,18 +335,20 @@ public class GestionStructureMusicale {
 			}	
 		}
 
+		String s1 = "";
+		String s2 = "";
 		if(FindPlaylist) {
-			System.out.println("Le Livre Audio " + P + " n'existe pas");
+			s1 = "Le Livre Audio " + P + " n'existe pas";
 		}
 		if(FindLivreAudio) {
 
-			System.out.println("La Livre Audio " + L + " n'existe pas");	
+			s2 = "La Livre Audio " + L + " n'existe pas";	
 		}
 		if(FindPlaylist || FindLivreAudio) {
-			return false;
+			throw new NotExistException(s1 + " " + s2);
 		}
 
-		return true;
+		return;
 
 	}
 
@@ -376,23 +387,21 @@ public class GestionStructureMusicale {
 
 	/**
 	* Remove the specified playlist.
-	* Print an error message if the specified playlist doesn't exist.
+	* @throws NotExistException Throws NotExistException if the specified playlist doesn't exist.
 	* @param P String title of the specified playlist.
-	* @return boolean value, return true if the plalist has been deleted, else return false.
 	*/
-	public static boolean removePlaylist(String P) {
+	public static void removePlaylist(String P) throws NotExistException {
 		
 		for(Playlist p : ListePlaylist) {
 
 			if(p.Titre.equals(P)) {
 				ListePlaylist.remove(p);
 				System.out.println("La playlist " + P + " a bien été supprimée");
-				return true;
+				return;
 			}
 		}
 
-		System.out.println("La playlist " + P + " n'existe pas");
-		return false;
+		throw new NotExistException("La playlist " + P + " n'existe pas");
 	}
 
 	/**

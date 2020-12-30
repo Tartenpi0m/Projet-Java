@@ -13,7 +13,7 @@ import java.io.InputStream;
 * This class provides all the existing features of GestionStructureMusicale to the user.
 * The user can use GestionStructureMusicale witheout using code by the way of this class.
 */
-public abstract class Entree {
+public abstract class Entree implements OperationSurObjetMusicale {
 
 	private static Scanner sc = new Scanner(System.in);
 
@@ -239,7 +239,6 @@ public abstract class Entree {
 		} else if(s.equals(tableauCommande[1].getCommande())) {
 
 			addAlbum();
- 
 		} else if(s.equals(tableauCommande[2].getCommande())) {
 			
  			addSongToAlbum();
@@ -281,15 +280,13 @@ public abstract class Entree {
 		System.out.println("--AJOUT D'UN NOUVEL ALBUM--");
 		String Titre = askRequired("Titre");
 		if(Titre.equals(tableauCommande[8].getCommande())) {return;}
-		for(Album play : GestionStructureMusicale.ListeAlbum) {
-			if(play.Titre.equals(Titre)) {
-				System.out.println("Un album du même nom existe déjà");
-				return;
-			}
-		}
 		String Artiste = askNonRequired("Artiste");
 		int Date = askIntNonRequired("Date (année)");
-		GestionStructureMusicale.addAlbum(Titre, giveId(), Artiste, Date);
+		try{
+			GestionStructureMusicale.addAlbum(Titre, giveId(), Artiste, Date);
+		} catch (AlreadyExistException e) {
+
+		}
 		GestionStructureMusicale.sortListAlbumByDate();
 	}
 
@@ -302,7 +299,9 @@ public abstract class Entree {
 		String TitreChanson;
 		String TitreAlbum;
 
-		do {
+		int i = 0;
+		while(i == 0) {
+			i = 1;
 			GestionStructureMusicale.printSongOfAlbum("No Album");
 			TitreChanson = askRequired("Chanson");
 			if(TitreChanson.equals(tableauCommande[8].getCommande())) {return;}
@@ -310,8 +309,17 @@ public abstract class Entree {
 			TitreAlbum = askRequired("Album");
 			if(TitreAlbum.equals(tableauCommande[8].getCommande())) {return;}
 			System.out.println(TitreChanson + " : " + TitreAlbum);
-		
-		} while(GestionStructureMusicale.addSongToAlbum(TitreChanson, TitreAlbum) == false);
+			
+			try {
+				GestionStructureMusicale.addSongToAlbum(TitreChanson, TitreAlbum);
+			} catch(NotExistException e) {
+				i = 0;
+				continue;
+			}
+
+		} 
+
+		return;
 
 	}
 
@@ -337,8 +345,11 @@ public abstract class Entree {
 		System.out.println("--AJOUT D'UNE NOUVELLE PLALYIST");
 		String NomPlaylist = askRequired("Nom"); 
 		if(NomPlaylist.equals(tableauCommande[8].getCommande())) {return;}
-		GestionStructureMusicale.addPlaylist(NomPlaylist);
+		try {
+			GestionStructureMusicale.addPlaylist(NomPlaylist);
+		} catch(AlreadyExistException e) {
 
+		}
 
 		String Titre;
 		String choix = askRequired("Ajouter des Chansons à la playlist (y/n)");
@@ -351,11 +362,14 @@ public abstract class Entree {
 
 
 			Titre = askRequired("Chansons");
-			if(Titre.equals(tableauCommande[8].getCommande())) {return;}
+			if(Titre.equals(tableauCommande[8].getCommande())) {break;}
 			
-			if(GestionStructureMusicale.addSongToPlaylist(Titre, NomPlaylist) == false) {
+			try {
+				GestionStructureMusicale.addSongToPlaylist(Titre, NomPlaylist);
+			} catch(NotExistException e) {
 				continue;
 			}
+			
 
 
 			choix = askRequired("Ajouter des Chansons à la playlist (y/n)");
@@ -375,7 +389,9 @@ public abstract class Entree {
 			Titre = askRequired("Livre Audio");
 			if(Titre.equals(tableauCommande[8].getCommande())) {return;}
 			
-			if(GestionStructureMusicale.addLivreAudioToPlaylist(Titre, NomPlaylist) == false) {
+			try {
+				GestionStructureMusicale.addLivreAudioToPlaylist(Titre, NomPlaylist); 
+			} catch(NotExistException e) {
 				continue;
 			}
 
@@ -394,9 +410,20 @@ public abstract class Entree {
 		String NomPlaylist = askRequired("Playlist");
 		if(NomPlaylist.equals(tableauCommande[8].getCommande())) {return;}
 
-		while(GestionStructureMusicale.removePlaylist(NomPlaylist) == false) {
-			NomPlaylist = askRequired("Playlist");
+		while(true) {
+
+			try {
+				GestionStructureMusicale.removePlaylist(NomPlaylist);
+				break;
+			} catch(NotExistException e) {
+				
+				NomPlaylist = askRequired("Playlist");
+				continue;
+			}
 		}
+		
+
+		return;
 	} 
 
 

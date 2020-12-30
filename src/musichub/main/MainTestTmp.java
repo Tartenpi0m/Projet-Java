@@ -4,12 +4,13 @@ public class MainTestTmp {
 
 	public static void main(String[] args) {
 
-		GestionStructureMusicale.addAlbum("No Album", Entree.giveId(), "No Artiste", 2020);
-		GestionStructureMusicale.addPlaylist("NoPlaylist");
-
-		GestionStructureMusicale.addAlbum("Peach", Entree.giveId(), "Larkin Poe", 2017);
-		GestionStructureMusicale.addPlaylist("Beurre");
 		
+		try {
+			GestionStructureMusicale.addAlbum("No Album", Entree.giveId(), "No Artiste", 2020);
+			GestionStructureMusicale.addAlbum("Peach", Entree.giveId(), "Larkin Poe", 2017);
+			GestionStructureMusicale.addPlaylist("NoPlaylist");
+			GestionStructureMusicale.addPlaylist("Beurre");
+		} catch(AlreadyExistException e) {}
 
 		GestionStructureMusicale.addSong("Look Away", Entree.giveId(), "Larkin Poe", Genre.ROCK);
 		GestionStructureMusicale.addSong("Black Betty", Entree.giveId(), "Larkin Poe", Genre.JAZZ);
