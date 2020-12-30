@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Albums>
+
+//Premier album	
+	<Album id ="01">
+		<Titre>Thriller</Titre>
+		<Artiste>Michael Jackson</Artiste>
+		<Durée(secondes)>2544</Durée(secondes)>
+		<Date>1982</Date>
+		<Chansons>
+			<Chanson>
+				<TitreChanson>Wanna Be Startin' Somethin'</TitreChanson>
+				<TitreChanson>Baby Be Mine</TitreChanson>
+				<TitreChanson>The Girl Is Mine</TitreChanson>
+				<TitreChanson>Thriller</TitreChanson>
+				<TitreChanson>Beat It</TitreChanson>
+				<TitreChanson>Billie Jean</TitreChanson>
+				<TitreChanson>Human Nature</TitreChanson>
+				<TitreChanson>P.Y.T.(Pretty Young Thing)</TitreChanson>
+				<TitreChanson>The Lady in My Life</TitreChanson>
+			</Chanson>
+		</Chansons>
+	</Album>
+	
+
+//Deuxieme Album
+	<Album id ="02">
+		<Titre>Rester vivant</Titre>
+		<Artiste>Johnny Hallyday</Artiste>
+		<Durée(secondes)>2873</Durée(secondes)>
+		<Date>2014</Date>
+		<Chansons>
+			<Chanson>
+				<TitreChanson>J'ai ce que j'ai donné</TitreChanson>
+				<TitreChanson>Regarde-nous</TitreChanson>
+				<TitreChanson>Rester vivant</TitreChanson>
+				<TitreChanson>Seul</TitreChanson>
+				<TitreChanson>Au café de l'avenir</TitreChanson>
+				<TitreChanson>Une lettre à l'enfant que j'étais</TitreChanson>
+				<TitreChanson>J'tai même pas dit merci</TitreChanson>
+				<TitreChanson>Si j'avais su la vie</TitreChanson>
+				<TitreChanson>On s'habitue à tout</TitreChanson>
+				<TitreChanson>Te voir grandir</TitreChanson>
+				<TitreChanson>A nos promesses</TitreChanson>
+			</Chanson>
+		</Chansons>
+	</Album>
+
+//Troisieme Album
+	<Album id ="03">
+		<Titre>Back in Black</Titre>
+		<Artiste>AC/DC</Artiste>
+		<Durée(secondes)>2537</Durée(secondes)>
+		<Date>1980</Date>
+		<Chansons>
+			<Chanson>
+				<TitreChanson>Hells Bells</TitreChanson>
+				<TitreChanson>Shoot to Thrill</TitreChanson>
+				<TitreChanson>What Do You Do for Money Honey</TitreChanson>
+				<TitreChanson>Givin the DOg a Bone</TitreChanson>
+				<TitreChanson>Let Me Put My Love into You</TitreChanson>
+				<TitreChanson>Back in Black</TitreChanson>
+				<TitreChanson>You Shook Me All Night Long</TitreChanson>
+				<TitreChanson>Have a Drink on Me</TitreChanson>
+				<TitreChanson>Shake a Leg</TitreChanson>
+				<TitreChanson>Rock and Roll Ain't Noise Pollution</TitreChanson>
+			</Chanson>
+		</Chansons>
+	</Album>
+
+</ALbums>
