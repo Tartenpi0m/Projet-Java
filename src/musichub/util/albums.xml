@@ -3,7 +3,8 @@
 <Albums>
 
 //Premier album	
-	<Album id ="01">
+	<Album>
+		<ID>1</ID>
 		<Titre>Thriller</Titre>
 		<Artiste>Michael Jackson</Artiste>
 		<Durée(secondes)>2544</Durée(secondes)>
@@ -25,7 +26,8 @@
 	
 
 //Deuxieme Album
-	<Album id ="02">
+	<Album>
+		<ID>2</ID>
 		<Titre>Rester vivant</Titre>
 		<Artiste>Johnny Hallyday</Artiste>
 		<Durée(secondes)>2873</Durée(secondes)>
@@ -48,7 +50,8 @@
 	</Album>
 
 //Troisieme Album
-	<Album id ="03">
+	<Album>
+		<ID>3</ID>
 		<Titre>Back in Black</Titre>
 		<Artiste>AC/DC</Artiste>
 		<Durée(secondes)>2537</Durée(secondes)>
@@ -58,7 +61,7 @@
 				<TitreChanson>Hells Bells</TitreChanson>
 				<TitreChanson>Shoot to Thrill</TitreChanson>
 				<TitreChanson>What Do You Do for Money Honey</TitreChanson>
-				<TitreChanson>Givin the DOg a Bone</TitreChanson>
+				<TitreChanson>Givin the Dog a Bone</TitreChanson>
 				<TitreChanson>Let Me Put My Love into You</TitreChanson>
 				<TitreChanson>Back in Black</TitreChanson>
 				<TitreChanson>You Shook Me All Night Long</TitreChanson>
@@ -69,4 +72,4 @@
 		</Chansons>
 	</Album>
 
-</ALbums>
+</Albums>

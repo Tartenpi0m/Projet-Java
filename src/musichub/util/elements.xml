@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Elements>
+
+//Premiere chanson	
+	<Chanson>
+		<ID>1</ID>
+		<Titre>Thriller</Titre>
+		<Artiste>Michael Jackson</Artiste>
+		<Durée>358</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Pop</Genre>
+	</Chanson>
+	
+//Chanson suivante	
+	<Chanson>
+		<ID>2</ID>
+		<Titre>Baby Be Mine</Titre>
+		<Artiste>Michael Jackson</Artiste>
+		<Durée>260</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Pop</Genre>
+	</Chanson>
+
+//Chanson suivante
+	<Chanson>
+		<ID>3</ID>
+		<Titre>The Girl Is Mine</Titre>
+		<Artiste>Michael Jackson</Artiste>
+		<Durée>222</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Pop</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>4</ID>
+		<Titre>Beat It</Titre>
+		<Artiste>Michael Jackson</Artiste>
+		<Durée>259</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Pop</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>5</ID>
+		<Titre>Billie Jean</Titre>
+		<Artiste>Michael Jackson</Artiste>
+		<Durée>294</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Pop</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>6</ID>
+		<Titre>Human Nature</Titre>
+		<Artiste>Michael Jackson</Artiste>
+		<Durée>246</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Pop</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>7</ID>
+		<Titre>The Lady in My Life</Titre>
+		<Artiste>Michael Jackson</Artiste>
+		<Durée>300</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Pop</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>8</ID>
+		<Titre>Wanna Be Startin' Somethin'</Titre>
+		<Artiste>Michael Jackson</Artiste>
+		<Durée>362</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Pop</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>9</ID>
+		<Titre>P.Y.T.(Pretty Young Thing)</Titre>
+		<Artiste>Michael Jackson</Artiste>
+		<Durée>239</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Pop</Genre>
+	</Chanson>
+
+
+//Chanson suivante
+	<Chanson>
+		<ID>10</ID>
+		<Titre>J'ai ce que j'ai donné</Titre>
+		<Artiste>Johnny Hallyday</Artiste>
+		<Durée>220</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>11</ID>
+		<Titre>Regarde-nous</Titre>
+		<Artiste>Johnny Hallyday</Artiste>
+		<Durée>213</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>12</ID>
+		<Titre>Rester vivant</Titre>
+		<Artiste>Johnny Hallyday</Artiste>
+		<Durée>277</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>13</ID>
+		<Titre>Seul</Titre>
+		<Artiste>Johnny Hallyday</Artiste>
+		<Durée>215</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>14</ID>
+		<Titre>Au café de l'avenir</Titre>
+		<Artiste>Johnny Hallyday</Artiste>
+		<Durée>251</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>15</ID>
+		<Titre>Une lettre à l'enfant que j'étais</Titre>
+		<Artiste>Johnny Hallyday</Artiste>
+		<Durée>215</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>16</ID>
+		<Titre>J'tai même pas dit merci</Titre>
+		<Artiste>Johnny Hallyday</Artiste>
+		<Durée>317</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>17</ID>
+		<Titre>Si j'avais su la vie</Titre>
+		<Artiste>Johnny Hallyday</Artiste>
+		<Durée>224</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>18</ID>
+		<Titre>On s'habitue à tout</Titre>
+		<Artiste>Johnny Hallyday</Artiste>
+		<Durée>219</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>19</ID>
+		<Titre>Te voir grandir</Titre>
+		<Artiste>Johnny Hallyday</Artiste>
+		<Durée>202</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>20</ID>
+		<Titre>A nos promesses</Titre>
+		<Artiste>Johnny Hallyday</Artiste>
+		<Durée>239</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+
+//Chanson suivante
+	<Chanson>
+		<ID>21</ID>
+		<Titre>Hells Bells</Titre>
+		<Artiste>AC/DC</Artiste>
+		<Durée>312</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>22</ID>
+		<Titre>Shoot to Thrill</Titre>
+		<Artiste>AC/DC</Artiste>
+		<Durée>317</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>23</ID>
+		<Titre>What Do You Do for Money Honey</Titre>
+		<Artiste>AC/DC</Artiste>
+		<Durée>217</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>24</ID>
+		<Titre>Givin the Dog a Bone</Titre>
+		<Artiste>AC/DC</Artiste>
+		<Durée>213</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>25</ID>
+		<Titre>Let Me Put My Love into You</Titre>
+		<Artiste>AC/DC</Artiste>
+		<Durée>256</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>26</ID>
+		<Titre>Back in Black</Titre>
+		<Artiste>AC/DC</Artiste>
+		<Durée>256</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>27</ID>
+		<Titre>You Shook Me All Night Long</Titre>
+		<Artiste>AC/DC</Artiste>
+		<Durée>212</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>28</ID>
+		<Titre>Have a Drink on Me</Titre>
+		<Artiste>AC/DC</Artiste>
+		<Durée>238</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>29</ID>
+		<Titre>Shake a Leg</Titre>
+		<Artiste>AC/DC</Artiste>
+		<Durée>246</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+//Chanson suivante
+	<Chanson>
+		<ID>30</ID>
+		<Titre>Rock and Roll Ain't Noise Pollution</Titre>
+		<Artiste>AC/DC</Artiste>
+		<Durée>256</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Genre>Rock</Genre>
+	</Chanson>
+
+//Premier livre audio
+	<LivreAudio>
+		<ID>1</ID>
+		<Titre>Vivre à deux en étant différents</Titre>
+		<Auteur>Jacques Salomé</Auteur>
+		<Durée>4380</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Langue>Français</Langue>
+		<Catégorie>Jeunesse</Catégorie>
+	</LivreAudio>
+//Livre audio suivant
+	<LivreAudio>
+		<ID>2</ID>
+		<Titre>Le courage d'être soi</Titre>
+		<Auteur>Jacques Salomé</Auteur>
+		<Durée>4740</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Langue>Français</Langue>
+		<Catégorie>Jeunesse</Catégorie>
+	</LivreAudio>
+//Livre audio suivant
+	<LivreAudio>
+		<ID>3</ID>
+		<Titre>Les Misérables</Titre>
+		<Auteur>Victor Hugo</Auteur>
+		<Durée>204780</Durée>
+		<Contenu>Ici lien vers fichier audio</Contenu>
+		<Langue>Français</Langue>
+		<Catégorie>Roman</Catégorie>
+	</LivreAudio>
+
+</Elements>
