@@ -140,7 +140,7 @@ public class XMLelement {
 		String Auteur = "";
 		String Langue2 = "";
 		String Categorie2 = "";
-		XML_INPUT_FILE = "doc/elements.xml";
+		XML_INPUT_FILE = "files/elements.xml";
 		NodeList nodes = this.parseXMLFile(XML_INPUT_FILE);
 		if (nodes == null) return;
 
@@ -338,7 +338,7 @@ public class XMLelement {
 		String TitreLivreAudio3 = "";	
 		String TitreLivreAudio4 = "";	
 		String TitreLivreAudio5 = "";	
-		nodes = this.parseXMLFile("doc/albums.xml");
+		nodes = this.parseXMLFile("files/albums.xml");
 		if (nodes == null) return;
 
 		for (int i = 0; i<nodes.getLength(); i++) {
@@ -443,7 +443,7 @@ public class XMLelement {
 				}
 			}
 		}
-		XML_INPUT_FILE = "doc/playlists.xml";
+		XML_INPUT_FILE = "files/playlists.xml";
 		nodes = this.parseXMLFile(XML_INPUT_FILE);
 		if (nodes == null) return;
 
@@ -458,6 +458,7 @@ public class XMLelement {
 						//verify that I read everything correctly:
 					} catch (Exception ex) {
 					}
+				}
 					Musique.addPlaylist(Nom); //ID PAS FAIT
 					if (currentElement.getNodeName().equals("Chanson")) 	{
 						try {
@@ -556,7 +557,7 @@ public class XMLelement {
 						TitreLivreAudio5 = "";	
 					}
 				}
-			}
+			
 		}	
 
 	}
