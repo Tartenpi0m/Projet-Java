@@ -1,4 +1,4 @@
-package main;
+package src.musichub.main;
 
 import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -24,12 +24,13 @@ public class Album extends StructureMusicale {
 	* @param Artiste String Artist
 	* @param Date int Date
 	*/
-	public Album(String Titre, int Id, String Artiste, int Date) {
+	public Album(String Titre, int Id, String Artiste, int Date, int Duree) {
 
 		this.Titre = Titre;
 		this.Id = Id;
 		this.Artiste = Artiste;
 		this.Date = Date;
+		this.Duree = Duree;
 
 	}
 

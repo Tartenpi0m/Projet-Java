@@ -1,4 +1,5 @@
-package main;
+package src.musichub.main;
+
 
 import java.lang.Exception;
 

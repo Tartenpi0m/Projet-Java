@@ -1,4 +1,4 @@
-package main;
+package src.musichub.main;
 
 /**
 * This inteface contains method wich are possible's action that the user can do.

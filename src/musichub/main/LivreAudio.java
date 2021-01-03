@@ -1,4 +1,5 @@
-package main;
+package src.musichub.main;
+
 /**
 * * This class represent an audio book from the user's perspective.
 */
@@ -18,13 +19,14 @@ public class LivreAudio extends ElementMusicale {
 	* @param Langues Langue Languages
 	* @param Categorie Categorie types
 	*/
-	public LivreAudio(String Titre, int Id, String Auteur, Langue Langue, Categorie Categorie) {
+	public LivreAudio(String Titre, int Id, String Auteur, Langue Langue, Categorie Categorie, int Duree) {
 	
 		this.Titre = Titre;
 		this.Id = Id;
 		this.Auteur = Auteur;
 		this.Langue = Langue;
 		this.Categorie = Categorie;
+		this.Duree = Duree;
 
 	}
 

@@ -1,4 +1,4 @@
-package main;
+package src.musichub.main;
 
 /**
 * This enumeration lists all available types of music. 

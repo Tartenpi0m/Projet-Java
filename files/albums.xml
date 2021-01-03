@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Albums>
+
+//Premier album	
+	<Album>
+		<ID>100</ID>
+		<Titre>Thriller</Titre>
+		<Artiste>Michael Jackson</Artiste>
+		<Duree>2544</Duree>
+		<Date>1982</Date>
+	</Album>
+		<Chanson>
+			<TitreChanson1>Wanna Be Startin' Somethin'</TitreChanson1>
+			<TitreChanson2>Baby Be Mine</TitreChanson2>
+			<TitreChanson3>The Girl Is Mine</TitreChanson3>
+			<TitreChanson4>Thriller</TitreChanson4>
+			<TitreChanson5>Beat It</TitreChanson5>
+			<TitreChanson6>Billie Jean</TitreChanson6>
+			<TitreChanson7>Human Nature</TitreChanson7>
+			<TitreChanson8>P.Y.T.(Pretty Young Thing)</TitreChanson8>
+			<TitreChanson9>The Lady in My Life</TitreChanson9>
+		</Chanson>
+	
+
+//Deuxieme Album
+	<Album>
+		<ID>101</ID>
+		<Titre>Rester vivant</Titre>
+		<Artiste>Johnny Hallyday</Artiste>
+		<Duree>2873</Duree>
+		<Date>2014</Date>
+	</Album>
+		<Chanson>
+			<TitreChanson1>J'ai ce que j'ai donné</TitreChanson1>
+			<TitreChanson2>Regarde-nous</TitreChanson2>
+			<TitreChanson3>Rester vivant</TitreChanson3>
+			<TitreChanson4>Seul</TitreChanson4>
+			<TitreChanson5>Au café de l'avenir</TitreChanson5>
+			<TitreChanson6>Une lettre à l'enfant que j'étais</TitreChanson6>
+			<TitreChanson7>J'tai même pas dit merci</TitreChanson7>
+			<TitreChanson8>Si j'avais su la vie</TitreChanson8>
+			<TitreChanson9>On s'habitue à tout</TitreChanson9>
+			<TitreChanson10>Te voir grandir</TitreChanson10>
+			<TitreChanson11>A nos promesses</TitreChanson11>
+		</Chanson>
+
+//Troisieme Album
+	<Album>
+		<ID>102</ID>
+		<Titre>Back in Black</Titre>
+		<Artiste>AC/DC</Artiste>
+		<Duree>2537</Duree>
+		<Date>1980</Date>
+	</Album>
+		<Chanson>
+			<TitreChanson1>Hells Bells</TitreChanson1>
+			<TitreChanson2>Shoot to Thrill</TitreChanson2>
+			<TitreChanson3>What Do You Do for Money Honey</TitreChanson3>
+			<TitreChanson4>Givin the Dog a Bone</TitreChanson4>
+			<TitreChanson5>Let Me Put My Love into You</TitreChanson5>
+			<TitreChanson6>Back in Black</TitreChanson6>
+			<TitreChanson7>You Shook Me All Night Long</TitreChanson7>
+			<TitreChanson8>Have a Drink on Me</TitreChanson8>
+			<TitreChanson9>Shake a Leg</TitreChanson9>
+			<TitreChanson10>Rock and Roll Ain't Noise Pollution</TitreChanson10>
+		</Chanson>
+
+</Albums>
+

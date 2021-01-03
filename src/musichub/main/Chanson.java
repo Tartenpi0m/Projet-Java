@@ -1,4 +1,4 @@
-package main;
+package src.musichub.main;
 
 import java.util.Comparator;
 
@@ -17,12 +17,13 @@ public class Chanson extends ElementMusicale {
 	* @param Artiste String Artist
 	* @param Genre Genre types
 	*/
-	public Chanson(String Titre, int Id, String Artiste, Genre Genre) {
+	public Chanson(String Titre, int Id, String Artiste, Genre Genre, int Duree) {
 
 		this.Titre = Titre;
 		this.Id = Id;
 		this.Artiste = Artiste;
 		this.Genre = Genre;
+		this.Duree = Duree;
 	}
 
 	/**

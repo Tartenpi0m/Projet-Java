@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Playlists>
+
+//Premiere playlist	
+	<Playlist>
+		<ID>200</ID>
+		<Nom>Un peu de funk et de Rock</Nom>
+	</Playlist>
+	<Chanson>
+		<TitreChanson1>Back in Black</TitreChanson1>
+		<TitreChanson2>Thriller</TitreChanson2>
+		<TitreChanson3>Shake a leg</TitreChanson3>
+		<TitreChanson4>Beat It</TitreChanson4>
+		<TitreChanson5>Have a Drink on Me</TitreChanson5>
+		<TitreChanson6>Billie Jean</TitreChanson6>
+	</Chanson>
+	
+
+//Deuxieme Playlist	
+	<Playlist>
+		<ID>201</ID>
+		<Nom>Du calme et des histoires</Nom>
+	</Playlist>
+	<Chanson>
+		<TitreChanson1>Rester vivant</TitreChanson1>
+		<TitreChanson2>Te voir grandir</TitreChanson2>
+		<TitreChanson3>On s'habitue à tout</TitreChanson3>
+		<TitreChanson4>A nos promesses</TitreChanson4>
+	</Chanson>
+	<LivreAudio>
+		<TitreLivreAudio1>Vivre à deux en étant différents</TitreLivreAudio1>
+		<TitreLivreAudio2>Le courage d'être soi</TitreLivreAudio2>
+	</LivreAudio>
+
+</Playlists>
+

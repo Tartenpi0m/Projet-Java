@@ -1,4 +1,4 @@
-package main;
+package src.musichub.main;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -19,9 +19,11 @@ public class Playlist extends StructureMusicale {
 	/**
 	* Playlist Constructor, named the playlist with the specified String.
 	*/
-	public Playlist(String Titre) {
+	public Playlist(String Titre, int Id) {
 
 		this.Titre = Titre;
+		this.Id = Id;
+
 
 	}
 

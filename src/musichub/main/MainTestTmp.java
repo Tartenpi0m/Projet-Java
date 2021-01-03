@@ -1,25 +1,22 @@
-package main;
+package src.musichub.main;
+
+import src.musichub.main.*;
+import src.musichub.util.*;
+
 
 public class MainTestTmp {
 
 	public static void main(String[] args) {
 
-		
 		try {
-			GestionStructureMusicale.addAlbum("No Album", Entree.giveId(), "No Artiste", 2020);
-			GestionStructureMusicale.addAlbum("Peach", Entree.giveId(), "Larkin Poe", 2017);
-			GestionStructureMusicale.addPlaylist("NoPlaylist");
-			GestionStructureMusicale.addPlaylist("Beurre");
-		} catch(AlreadyExistException e) {}
-
-		GestionStructureMusicale.addSong("Look Away", Entree.giveId(), "Larkin Poe", Genre.ROCK);
-		GestionStructureMusicale.addSong("Black Betty", Entree.giveId(), "Larkin Poe", Genre.JAZZ);
-		GestionStructureMusicale.addSong("Hold the Line", Entree.giveId(), "Toto", Genre.ROCK);
-
-		GestionStructureMusicale.addLivreAudio("Harry Potter II",  Entree.giveId(), "J.K. Rowlings", Langue.FRANCAIS, Categorie.JEUNESSE);
-
-		//GestionStructureMusicale.addSongToAlbum("Look Away", "Peach");
+		GestionStructureMusicale.addAlbum("No Album", Entree.giveId(), "No Artiste", 2020, 0);
+		GestionStructureMusicale.addPlaylist("NoPlaylist", Entree.giveId());						  
+		} catch(AlreadyExistException e) {
+		}
 		
+					  
+		XMLelement XML = new XMLelement();
+		XML.readXML();
 
 
 		String s;

@@ -1,4 +1,4 @@
-package main;
+package src.musichub.main;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.List;
@@ -25,9 +25,9 @@ public abstract class GestionStructureMusicale implements OperationSurObjetMusic
 	* @param Artiste String Artist give to the constructor.
 	* @param Genre Genre types give to the constructor.
 	*/
-	public static void addSong(String Titre, int Id, String Artiste, Genre Genre) {
+	public static void addSong(String Titre, int Id, String Artiste, Genre Genre, int Duree) {
 		System.out.println("La chanson " + Titre + " a bien été ajoutée");
-		Chanson c = new Chanson(Titre, Id, Artiste, Genre);
+		Chanson c = new Chanson(Titre, Id, Artiste, Genre, Duree);
 		ListeAlbum.get(0).MusiqueListe.add(c);
 		
 	}
@@ -41,7 +41,7 @@ public abstract class GestionStructureMusicale implements OperationSurObjetMusic
 	* @param Artiste String Artist give to the constructor.
 	* @param Date int Date give to the constructor.
 	*/
-	public static void addAlbum(String Titre, int Id, String Artiste, int Date) throws AlreadyExistException {
+	public static void addAlbum(String Titre, int Id, String Artiste, int Date, int Duree) throws AlreadyExistException {
 
 		for(Album play : GestionStructureMusicale.ListeAlbum) {
 			if(play.Titre.equals(Titre)) {
@@ -49,7 +49,7 @@ public abstract class GestionStructureMusicale implements OperationSurObjetMusic
 			}
 		}
 		
-		Album a = new Album(Titre, Id, Artiste, Date);
+		Album a = new Album(Titre, Id, Artiste, Date, Duree);
 		ListeAlbum.add(a);
 		System.out.println("L'album " + Titre + " a bien été ajouté.");
 
@@ -109,10 +109,12 @@ public abstract class GestionStructureMusicale implements OperationSurObjetMusic
 	public static void addSongToAlbum(String S,String A) throws NotExistException {
 		boolean FindAlbum = true;
 		boolean FindSong = true;
+		int Duree;
 
 		quit:for(Chanson s : ListeAlbum.get(0).MusiqueListe) {
 			if(s.Titre.equals(S)) {
 				FindSong = false;
+				Duree = s.getDuree();
 
 				for(Album a : ListeAlbum) {
 
@@ -121,6 +123,7 @@ public abstract class GestionStructureMusicale implements OperationSurObjetMusic
 						a.MusiqueListe.add(s);
 						ListeAlbum.get(0).MusiqueListe.remove(s);
 						System.out.println("La chanson " + S +" a bien été ajoutée à l'album " + A);
+						a.setDuree(a.getDuree() + Duree); 
 						break quit;
 					}
 				}
@@ -193,9 +196,10 @@ public abstract class GestionStructureMusicale implements OperationSurObjetMusic
 	* @param Langues Langue Languages
 	* @param Categorie Categorie types
 	*/
-	public static void addLivreAudio(String Titre, int Id, String Auteur, Langue Langue, Categorie Categorie) {
+	public static void addLivreAudio(String Titre, int Id, String Auteur, Langue Langue, Categorie Categorie, int Duree) {
 
-		LivreAudio la = new LivreAudio(Titre, Id, Auteur, Langue, Categorie);
+		LivreAudio la = new LivreAudio(Titre, Id, Auteur, Langue, Categorie, Duree);
+		System.out.println("Le LivreAudio " + Titre + " a bien été ajouté");
 		ListePlaylist.get(0).MusiqueListe.add(la);
 
 	}
@@ -205,7 +209,7 @@ public abstract class GestionStructureMusicale implements OperationSurObjetMusic
 	* @throws AlreadyExistException If a playlist with same name exist, throws an AlreadyExistException.
 	* @param Titre String title of the playlist to create.
 	*/
-	public static void addPlaylist(String Titre) throws AlreadyExistException {
+	public static void addPlaylist(String Titre, int Id) throws AlreadyExistException {
 
 		for(Playlist play : ListePlaylist) {
 			if(play.Titre.equals(Titre)) {
@@ -213,7 +217,8 @@ public abstract class GestionStructureMusicale implements OperationSurObjetMusic
 			}
 		}
 
-		Playlist p = new Playlist(Titre);
+		Playlist p = new Playlist(Titre, Id);
+		System.out.println("La PlayList " + Titre + " a bien été ajoutée");
 		ListePlaylist.add(p);
 		System.out.println("La playlist " + Titre + " a bien été ajoutée");
 	}

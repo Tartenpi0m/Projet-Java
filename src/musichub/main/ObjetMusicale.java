@@ -1,4 +1,4 @@
-package main;
+package src.musichub.main;
 
 /**
 * Abstract class which groups together the common attributes of <strong>ElementMusciale</strong> et <strong>StructureMusicale</strong>
@@ -32,5 +32,10 @@ abstract public class ObjetMusicale {
 	public int getDuree() {
 		return this.Duree;
 	}	
+
+
+	public void setDuree(int Duree) {
+		this.Duree = Duree;
+	}
 
 }

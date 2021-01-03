@@ -1,4 +1,5 @@
-package main;
+package src.musichub.main;
+
 /**
 * This enumeration lists all available types of audio books.
 * (Jeunesse, Roman, Théatre, Discours,  Documentaire)

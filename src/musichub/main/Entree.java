@@ -1,4 +1,4 @@
-package main;
+package src.musichub.main;
 
 
 import java.util.Scanner;
@@ -251,6 +251,18 @@ public abstract class Entree implements OperationSurObjetMusicale {
 		} else if(s.equals(tableauCommande[5].getCommande())) {
 			
  			removePlaylist();
+		} else if(s.equals(tableauCommande[7].getCommande())) {
+			
+ 			help();
+		} else if(s.equals(tableauCommande[8].getCommande())) {
+			
+ 			
+		} else if(s.equals(tableauCommande[9].getCommande())) {
+			
+ 			
+		} else if(s.equals(tableauCommande[10].getCommande())) {
+			
+ 		
 		} 
 
 	
@@ -266,9 +278,10 @@ public abstract class Entree implements OperationSurObjetMusicale {
 		System.out.println("--AJOUT D'UNE NOUVELLE CHANSON--");
 		String Titre = askRequired("Titre");
 		if(Titre.equals(tableauCommande[8].getCommande())) {return;}
+		int Duree = askIntNonRequired("Duree");
 		String Artiste = askNonRequired("Artiste");
 		Genre Genre = askGenre();
-		GestionStructureMusicale.addSong(Titre, giveId(), Artiste, Genre);
+		GestionStructureMusicale.addSong(Titre, giveId(), Artiste, Genre, Duree);
 
 	}
 
@@ -280,10 +293,11 @@ public abstract class Entree implements OperationSurObjetMusicale {
 		System.out.println("--AJOUT D'UN NOUVEL ALBUM--");
 		String Titre = askRequired("Titre");
 		if(Titre.equals(tableauCommande[8].getCommande())) {return;}
+		int Duree = askIntNonRequired("Duree");
 		String Artiste = askNonRequired("Artiste");
 		int Date = askIntNonRequired("Date (année)");
 		try{
-			GestionStructureMusicale.addAlbum(Titre, giveId(), Artiste, Date);
+			GestionStructureMusicale.addAlbum(Titre, giveId(), Artiste, Date, Duree);
 		} catch (AlreadyExistException e) {
 
 		}
@@ -331,10 +345,11 @@ public abstract class Entree implements OperationSurObjetMusicale {
 		System.out.println("--AJOUT D'UN NOUVEAU LIVRE AUDIO--");
 		String Titre = askRequired("Titre");
 		if(Titre.equals(tableauCommande[8].getCommande())) {return;}
+		int Duree = askIntNonRequired("Duree");
 		String Auteur = askNonRequired("Auteur");
 		Langue Langue = askLangue();
 		Categorie Categorie = askCategorie();
-		GestionStructureMusicale.addLivreAudio(Titre, giveId(), Auteur, Langue, Categorie);
+		GestionStructureMusicale.addLivreAudio(Titre, giveId(), Auteur, Langue, Categorie, Duree);
 	}
 
 	/**
@@ -346,7 +361,7 @@ public abstract class Entree implements OperationSurObjetMusicale {
 		String NomPlaylist = askRequired("Nom"); 
 		if(NomPlaylist.equals(tableauCommande[8].getCommande())) {return;}
 		try {
-			GestionStructureMusicale.addPlaylist(NomPlaylist);
+			GestionStructureMusicale.addPlaylist(NomPlaylist, giveId());
 		} catch(AlreadyExistException e) {
 
 		}
@@ -425,6 +440,30 @@ public abstract class Entree implements OperationSurObjetMusicale {
 
 		return;
 	} 
+
+	public static help() {
+		System.out.println("\"c\" : rajout d'une nouvelle chanson");
+		System.out.println("\"a\" : rajout d'un nouvel album");
+		System.out.println("\"+\" : rajout d'une chanson existante à un album");
+		System.out.println("\"l\" : rajout d'un nouveau livre audio");
+		System.out.println("\"p\" : création d'une nouvelle playlist à partir de chansons et livres audio existants");
+		System.out.println("\"a\" : afficher les chansons d'un album");
+		System.out.println("\"a\" : afficher les titres des albums, rangés par date de sortie");
+		System.out.println("\"a\" : afficher les chansons d'un album, rangées par genre");
+		System.out.println("\"a\" : afficher les playlits");
+		System.out.println("\"a\" : afficher les livres audio rangés par auteur");
+		System.out.println("\"h\" : aide avec les détails des commandes précédentes (mais ça apparement, vous savez le faire !)");
+	}
+
+
+	public static printSongOfAlbum() {
+
+		String A = AskRequired();
+		if(A.equals(tableauCommande[8].getCommande())) {return;}
+		GestionStructureMusicale.printSongOfAlbum(A);
+	}
+
+	public static
 
 
 

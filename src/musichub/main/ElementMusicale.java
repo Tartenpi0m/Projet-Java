@@ -1,5 +1,5 @@
+package src.musichub.main;
 
-package main;
 
 /**
 * Abstract class which groups together the common attributes of <strong>Chanson</strong> et <strong>LivreAudio</strong>
