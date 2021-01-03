@@ -1,4 +1,4 @@
-package main;
+package src.musichub.main;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.List;
@@ -152,6 +152,7 @@ public class GestionStructureMusicale {
 	public static void addLivreAudio(String Titre, int Id, String Auteur, Langue Langue, Categorie Categorie) {
 
 		LivreAudio la = new LivreAudio(Titre, Id, Auteur, Langue, Categorie);
+		System.out.println("Le LivreAudio " + Titre + " a bien été ajouté");
 		ListePlaylist.get(0).MusiqueListe.add(la);
 
 	}
@@ -159,6 +160,7 @@ public class GestionStructureMusicale {
 	public static void addPlaylist(String Titre) {
 
 		Playlist p = new Playlist(Titre);
+		System.out.println("La PlayList " + Titre + " a bien été ajoutée");
 		ListePlaylist.add(p);
 	}
 

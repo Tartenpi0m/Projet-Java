@@ -1,4 +1,5 @@
-package main;
+package src.musichub.main;
+
 /**
 *Enumeration des différentes categorie
 * (Jeunesse, Roman, Théatre, Discours,  Documentaire)

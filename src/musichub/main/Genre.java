@@ -1,4 +1,4 @@
-package main;
+package src.musichub.main;
 
 /**
 *Enumeration des différents genres de musique

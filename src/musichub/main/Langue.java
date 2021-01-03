@@ -1,4 +1,4 @@
-package main;
+package src.musichub.main;
 /**
 *Enumeration des différentes Langues
 * (Français, Anglais, Italien, Espagnol, Allemand)

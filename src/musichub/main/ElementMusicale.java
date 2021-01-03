@@ -1,5 +1,5 @@
+package src.musichub.main;
 
-package main;
 
 /**
 *Classe abstraite Elementmusicale qui regroupe les attributs communs entre la classe <strong>Chanson</strong> et <strong>LivreAudio</strong>

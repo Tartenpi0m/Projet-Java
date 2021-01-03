@@ -1,13 +1,21 @@
-package main;
+package src.musichub.main;
+
+import src.musichub.main.*;
+import src.musichub.util.*;
+
 
 public class MainTestTmp {
 
 	public static void main(String[] args) {
 
+
 		GestionStructureMusicale.addAlbum("No Album", Entree.giveId(), "No Artiste", 2020);
 		GestionStructureMusicale.addPlaylist("NoPlaylist");
+								  
+		XMLelement XML = new XMLelement();
+		XML.readXML();
 
-		GestionStructureMusicale.addAlbum("Peach", Entree.giveId(), "Larkin Poe", 2017);
+		/*GestionStructureMusicale.addAlbum("Peach", Entree.giveId(), "Larkin Poe", 2017);
 		GestionStructureMusicale.addPlaylist("Beurre");
 		
 
@@ -17,7 +25,7 @@ public class MainTestTmp {
 
 		GestionStructureMusicale.addLivreAudio("Harry Potter II",  Entree.giveId(), "J.K. Rowlings", Langue.FRANCAIS, Categorie.JEUNESSE);
 
-		//GestionStructureMusicale.addSongToAlbum("Look Away", "Peach");
+		GestionStructureMusicale.addSongToAlbum("Look Away", "Peach");*/
 		
 
 

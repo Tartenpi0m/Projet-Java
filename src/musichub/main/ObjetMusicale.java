@@ -1,4 +1,4 @@
-package main;
+package src.musichub.main;
 
 /**
 *Classe abstraite ObjetMusicale qui regroupe les attributs communs des classes abstraites <strong>ElementMusciale</strong> et <strong>StructureMusicale</strong>
