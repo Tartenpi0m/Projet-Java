@@ -378,7 +378,7 @@ public class XMLelement {
 
 
 					} catch (Exception ex) {
-						System.out.println("The album " + Titre + "have no more music");
+							System.out.println("Something is wrong with the XML albums element OR THE ALBUM IS NOT FULLED");
 					}
 					if (TitreChanson1 != "") {
 						Musique.addSongToAlbum(TitreChanson1,Titre);
@@ -457,7 +457,6 @@ public class XMLelement {
 
 						//verify that I read everything correctly:
 					} catch (Exception ex) {
-						System.out.println("Something is wrong with the XML albums element");
 					}
 					Musique.addPlaylist(Nom); //ID PAS FAIT
 					if (currentElement.getNodeName().equals("Chanson")) 	{
@@ -475,7 +474,7 @@ public class XMLelement {
 
 							//verify that I read everything correctly:
 						} catch (Exception ex) {
-							System.out.println("The playlist " + Nom + "have no more music");
+							System.out.println("Something is wrong with the XML albums element OR THE PLAYLIST IS NOT FULLED");
 						}
 						if (TitreChanson1 != "") {
 							Musique.addSongToPlaylist(TitreChanson1,Nom);
@@ -533,7 +532,7 @@ public class XMLelement {
 
 							//verify that I read everything correctly:
 						} catch (Exception ex) {
-							System.out.println("Something is wrong with the XML albums element");
+							System.out.println("Something is wrong with the XML albums element OR THE PLAYLIST IS NOT FULLED");
 						}
 						if (TitreLivreAudio1 != "") {
 							Musique.addLivreAudioToPlaylist(TitreLivreAudio1,Nom);
